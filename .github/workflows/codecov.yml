@@ -1,5 +1,5 @@
 name: Workflow for Codecov Java
-on: [ push, pull_request ]
+on: [push, pull_request]
 jobs:
   run:
     runs-on: ubuntu-latest
@@ -18,8 +18,12 @@ jobs:
       - name: Build with Maven and generate coverage report
         run: mvn clean verify
 
+      - name: List generated files
+        run: ls -R ./target/site/jacoco
+
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v4
+        with:
+          files: ./target/site/jacoco/jacoco.xml
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-          slug: ZhaoJunLei0/codecov-test
