@@ -24,6 +24,6 @@ jobs:
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v4
         with:
-          files: ./target/jacoco-report/jacoco.xml
+          files: ./target/jacoco-report
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
