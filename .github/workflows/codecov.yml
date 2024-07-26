@@ -5,7 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4.0.1
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
@@ -19,7 +19,7 @@ jobs:
         run: mvn clean verify
 
       - name: Upload coverage reports to Codecov
-        uses: codecov/codecov-action@v4.0.1
+        uses: codecov/codecov-action@v4
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
           slug: ZhaoJunLei0/codecov-test
