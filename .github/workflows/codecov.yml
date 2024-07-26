@@ -24,3 +24,4 @@ jobs:
                   verbose: true
               env:
                   CODECOV_TOKEN: f12f30de-7bf2-4d9d-810d-40e78ac43fcf
+                  slug: ZhaoJunLei0/codecov-test
