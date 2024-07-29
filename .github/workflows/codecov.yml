@@ -16,14 +16,14 @@ jobs:
           java-version: '8'
 
       - name: Build with Maven and generate coverage report
-        run: mvn test
+        run: mvn clean clover:setup test clover:aggregate clover:clover
 
       - name: List generated files
-        run: ls -R ./target/jacoco-report
+        run: ls -R ./target/site/clover
 
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v4
         with:
-          files: ./target/jacoco-report/jacoco.xml
+          files: ./target/site/clover/clover.xml
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
